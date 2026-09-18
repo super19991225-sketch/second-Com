@@ -10,33 +10,268 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ScientificAiRouteImport } from './routes/scientific-ai'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as ApiCareersRouteImport } from './routes/api/careers'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as CareersIndexRouteImport } from './routes/careers.index'
+import { Route as CareersApplyRouteImport } from './routes/careers.apply'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as ScientificAiIndexRouteImport } from './routes/scientific-ai.index'
+import { Route as ScientificAiDetailRouteImport } from './routes/scientific-ai.detail'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesIdRouteImport } from './routes/services.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScientificAiRoute = ScientificAiRouteImport.update({
+  id: '/scientific-ai',
+  path: '/scientific-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCareersRoute = ApiCareersRouteImport.update({
+  id: '/api/careers',
+  path: '/api/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CareersRoute,
+} as any)
+const CareersApplyRoute = CareersApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => CareersRoute,
+} as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
+const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
+const ScientificAiIndexRoute = ScientificAiIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ScientificAiRoute,
+} as any)
+const ScientificAiDetailRoute = ScientificAiDetailRouteImport.update({
+  id: '/detail',
+  path: '/detail',
+  getParentRoute: () => ScientificAiRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesIdRoute = ServicesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRouteWithChildren
+  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
+  '/scientific-ai': typeof ScientificAiRouteWithChildren
+  '/services': typeof ServicesRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/training': typeof TrainingRoute
+  '/api/careers': typeof ApiCareersRoute
+  '/api/contact': typeof ApiContactRoute
+  '/careers/apply': typeof CareersApplyRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/scientific-ai/detail': typeof ScientificAiDetailRoute
+  '/services/$id': typeof ServicesIdRoute
+  '/careers/': typeof CareersIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/scientific-ai/': typeof ScientificAiIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/training': typeof TrainingRoute
+  '/api/careers': typeof ApiCareersRoute
+  '/api/contact': typeof ApiContactRoute
+  '/careers/apply': typeof CareersApplyRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/scientific-ai/detail': typeof ScientificAiDetailRoute
+  '/services/$id': typeof ServicesIdRoute
+  '/careers': typeof CareersIndexRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
+  '/scientific-ai': typeof ScientificAiIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRouteWithChildren
+  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
+  '/scientific-ai': typeof ScientificAiRouteWithChildren
+  '/services': typeof ServicesRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/training': typeof TrainingRoute
+  '/api/careers': typeof ApiCareersRoute
+  '/api/contact': typeof ApiContactRoute
+  '/careers/apply': typeof CareersApplyRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/scientific-ai/detail': typeof ScientificAiDetailRoute
+  '/services/$id': typeof ServicesIdRoute
+  '/careers/': typeof CareersIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/scientific-ai/': typeof ScientificAiIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/case-studies'
+    | '/contact'
+    | '/privacy'
+    | '/scientific-ai'
+    | '/services'
+    | '/terms'
+    | '/training'
+    | '/api/careers'
+    | '/api/contact'
+    | '/careers/apply'
+    | '/case-studies/$slug'
+    | '/scientific-ai/detail'
+    | '/services/$id'
+    | '/careers/'
+    | '/case-studies/'
+    | '/scientific-ai/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/privacy'
+    | '/terms'
+    | '/training'
+    | '/api/careers'
+    | '/api/contact'
+    | '/careers/apply'
+    | '/case-studies/$slug'
+    | '/scientific-ai/detail'
+    | '/services/$id'
+    | '/careers'
+    | '/case-studies'
+    | '/scientific-ai'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/case-studies'
+    | '/contact'
+    | '/privacy'
+    | '/scientific-ai'
+    | '/services'
+    | '/terms'
+    | '/training'
+    | '/api/careers'
+    | '/api/contact'
+    | '/careers/apply'
+    | '/case-studies/$slug'
+    | '/scientific-ai/detail'
+    | '/services/$id'
+    | '/careers/'
+    | '/case-studies/'
+    | '/scientific-ai/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CareersRoute: typeof CareersRouteWithChildren
+  CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ScientificAiRoute: typeof ScientificAiRouteWithChildren
+  ServicesRoute: typeof ServicesRouteWithChildren
+  TermsRoute: typeof TermsRoute
+  TrainingRoute: typeof TrainingRoute
+  ApiCareersRoute: typeof ApiCareersRoute
+  ApiContactRoute: typeof ApiContactRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +283,210 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scientific-ai': {
+      id: '/scientific-ai'
+      path: '/scientific-ai'
+      fullPath: '/scientific-ai'
+      preLoaderRoute: typeof ScientificAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/careers': {
+      id: '/api/careers'
+      path: '/api/careers'
+      fullPath: '/api/careers'
+      preLoaderRoute: typeof ApiCareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/': {
+      id: '/careers/'
+      path: '/'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
+      parentRoute: typeof CareersRoute
+    }
+    '/careers/apply': {
+      id: '/careers/apply'
+      path: '/apply'
+      fullPath: '/careers/apply'
+      preLoaderRoute: typeof CareersApplyRouteImport
+      parentRoute: typeof CareersRoute
+    }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/$slug': {
+      id: '/case-studies/$slug'
+      path: '/$slug'
+      fullPath: '/case-studies/$slug'
+      preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/scientific-ai/': {
+      id: '/scientific-ai/'
+      path: '/'
+      fullPath: '/scientific-ai/'
+      preLoaderRoute: typeof ScientificAiIndexRouteImport
+      parentRoute: typeof ScientificAiRoute
+    }
+    '/scientific-ai/detail': {
+      id: '/scientific-ai/detail'
+      path: '/detail'
+      fullPath: '/scientific-ai/detail'
+      preLoaderRoute: typeof ScientificAiDetailRouteImport
+      parentRoute: typeof ScientificAiRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/$id': {
+      id: '/services/$id'
+      path: '/$id'
+      fullPath: '/services/$id'
+      preLoaderRoute: typeof ServicesIdRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
 
+interface CareersRouteChildren {
+  CareersApplyRoute: typeof CareersApplyRoute
+  CareersIndexRoute: typeof CareersIndexRoute
+}
+
+const CareersRouteChildren: CareersRouteChildren = {
+  CareersApplyRoute: CareersApplyRoute,
+  CareersIndexRoute: CareersIndexRoute,
+}
+
+const CareersRouteWithChildren =
+  CareersRoute._addFileChildren(CareersRouteChildren)
+
+interface CaseStudiesRouteChildren {
+  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+}
+
+const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
+  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+}
+
+const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
+  CaseStudiesRouteChildren,
+)
+
+interface ScientificAiRouteChildren {
+  ScientificAiDetailRoute: typeof ScientificAiDetailRoute
+  ScientificAiIndexRoute: typeof ScientificAiIndexRoute
+}
+
+const ScientificAiRouteChildren: ScientificAiRouteChildren = {
+  ScientificAiDetailRoute: ScientificAiDetailRoute,
+  ScientificAiIndexRoute: ScientificAiIndexRoute,
+}
+
+const ScientificAiRouteWithChildren = ScientificAiRoute._addFileChildren(
+  ScientificAiRouteChildren,
+)
+
+interface ServicesRouteChildren {
+  ServicesIdRoute: typeof ServicesIdRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesIdRoute: ServicesIdRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CareersRoute: CareersRouteWithChildren,
+  CaseStudiesRoute: CaseStudiesRouteWithChildren,
+  ContactRoute: ContactRoute,
+  PrivacyRoute: PrivacyRoute,
+  ScientificAiRoute: ScientificAiRouteWithChildren,
+  ServicesRoute: ServicesRouteWithChildren,
+  TermsRoute: TermsRoute,
+  TrainingRoute: TrainingRoute,
+  ApiCareersRoute: ApiCareersRoute,
+  ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

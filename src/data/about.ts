@@ -1,0 +1,108 @@
+export const leadership = [
+  {
+    name: "Clara",
+    role: "Scientific AI",
+    body: "Leads specialist models for mathematics, physics, and research data.",
+    image: "/images/lead-clara.png",
+    alt: "Clara, Scientific AI lead, looking at the camera in a navy blazer",
+    chips: ["Models", "Research", "Review"],
+    icon: "scientific" as const,
+  },
+  {
+    name: "Kenji",
+    role: "Engineering",
+    body: "Leads machine-learning systems, data platforms, and deployment.",
+    image: "/images/lead-kenji.png",
+    alt: "Kenji, Engineering lead",
+    chips: ["Systems", "Data", "Deploy"],
+    icon: "brain" as const,
+  },
+  {
+    name: "Elena",
+    role: "Products",
+    body: "Leads the web products and interfaces that carry the models.",
+    image: "/images/lead-elena.png?v=blonde",
+    alt: "Elena, Products lead, a professional woman with straight blonde hair",
+    chips: ["Product", "Web", "UX"],
+    icon: "globe" as const,
+  },
+  {
+    name: "Omar",
+    role: "Training",
+    body: "Leads the programs that let a client team take the work over.",
+    image: "/images/lead-omar.png",
+    alt: "Omar, Training lead",
+    chips: ["Teaching", "Handoff", "Practice"],
+    icon: "training" as const,
+  },
+] as const;
+
+export const workModels = [
+  {
+    title: "Start with the client problem",
+    body: "Sit with the team, name the users, the data, and what success looks like before a model is chosen.",
+    image: "/images/model-client.png?v=screens",
+    alt: "Three people looking at a laptop screen showing a Project Risk Map",
+    chips: ["Users", "Data", "Success"],
+    icon: "search" as const,
+  },
+  {
+    title: "Put the model at the center",
+    body: "Build the scientific or machine-learning model as the core of the engagement, then evaluate it in the open.",
+    image: "/images/model-center.png?v=screens",
+    alt: "Two people looking at a monitor showing a transformer decoder model diagram",
+    chips: ["Model", "Evaluate", "Review"],
+    icon: "brain" as const,
+  },
+  {
+    title: "Wrap it in a product",
+    body: "Carry the model in software a real team can open: dashboards, APIs, and the workflow around the result.",
+    image: "/images/model-product.png?v=screens",
+    alt: "Four engineers looking at a laptop screen of product dashboards",
+    chips: ["Software", "Workflow", "Use"],
+    icon: "globe" as const,
+  },
+  {
+    title: "Leave the team able to keep it",
+    body: "Train the people who stay. Documentation, evaluation, and practice so the system is theirs after we leave.",
+    image: "/images/model-handoff.png?v=screens",
+    alt: "Six people looking at a project timeline on a shared monitor",
+    chips: ["Train", "Document", "Keep"],
+    icon: "training" as const,
+  },
+] as const;
+
+export const cultureMoments = [
+  {
+    title: "On the mountain",
+    body: "Climbing days. Some lead, some belay, someone sits on the ridge and looks out.",
+    image: "/images/culture-climb.png",
+    alt: "Studio members mountain climbing on a rocky ridge",
+    chips: ["Climb", "Weekend"],
+    icon: "spark" as const,
+  },
+  {
+    title: "A game with a score",
+    body: "Volleyball and other team games. Some jump, some miss, someone keeps the count.",
+    image: "/images/culture-game.png",
+    alt: "Studio members playing an outdoor volleyball game",
+    chips: ["Game", "Team"],
+    icon: "about" as const,
+  },
+  {
+    title: "A long table",
+    body: "Dinner after a hard week. No slides. People talking over plates and water.",
+    image: "/images/culture-life.png",
+    alt: "Studio members at a long restaurant table after work",
+    chips: ["Dinner", "Life"],
+    icon: "book" as const,
+  },
+  {
+    title: "Ordinary hours",
+    body: "Markets, walks, coffee on a Saturday. The studio is a team outside the desks.",
+    image: "/images/culture-weekend.png",
+    alt: "Studio members walking a weekend path with coffee",
+    chips: ["Walk", "Weekend"],
+    icon: "about" as const,
+  },
+] as const;

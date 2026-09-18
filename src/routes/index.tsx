@@ -1,149 +1,159 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+
+import { CaseStudiesSection } from "@/components/case-studies/CaseStudiesSection";
+import { CollaborationCard } from "@/components/site/CollaborationCard";
+import { ContactOpenButton } from "@/components/site/ContactModal";
+import { FieldBand } from "@/components/site/FieldBand";
+import { Hero } from "@/components/site/Hero";
+import { ProcessStep } from "@/components/site/ProcessStep";
+import { ProofStrip } from "@/components/site/ProofStrip";
+import { ScientificAIFeature } from "@/components/site/ScientificAIFeature";
+import { SectionHeading } from "@/components/site/SectionHeading";
+import { ServiceCard } from "@/components/site/ServiceCard";
+import { SiteFrame } from "@/components/site/SiteFrame";
+import { TitleIcon } from "@/components/site/TitleIcon";
+import { TrainingTopics } from "@/components/site/TrainingTopics";
+import { processStages } from "@/data/process";
+import { services } from "@/data/services";
+import { company, seo } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "My Company — AI, Data & Product Engineering" },
-      {
-        name: "description",
-        content:
-          "My Company builds AI/ML systems, real-time data platforms and modern web products, and trains teams to run them.",
-      },
-      { property: "og:title", content: "My Company — AI, Data & Product Engineering" },
-      {
-        property: "og:description",
-        content:
-          "Selected work: predictive maintenance, streaming data platforms, customer portals, LLM assistants and applied AI training.",
-      },
+      { title: seo.title },
+      { name: "description", content: seo.description },
+      { property: "og:title", content: seo.title },
+      { property: "og:description", content: seo.description },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Index,
+  component: HomePage,
 });
 
-const work = [
-  {
-    title: "Predictive Maintenance ML System",
-    category: "AI/ML System",
-    client: "Mid-size manufacturing operator",
-    description:
-      "Built a predictive maintenance pipeline using sensor telemetry to flag equipment failures before they happen, replacing a manual inspection schedule.",
-    tech: ["Python", "scikit-learn", "Kafka", "Airflow", "AWS SageMaker"],
-    outcome:
-      "Reduced unplanned downtime by 34% and cut inspection labor hours by 20% in the first two quarters.",
-  },
-  {
-    title: "Real-Time Data Platform Migration",
-    category: "Data Platform",
-    client: "Fintech scale-up",
-    description:
-      "Re-architected a legacy batch-processing data warehouse into a real-time streaming platform to support fraud detection and reporting.",
-    tech: ["Snowflake", "dbt", "Apache Kafka", "Terraform"],
-    outcome:
-      "Reduced data latency from 24 hours to under 5 minutes and enabled same-day fraud alerts.",
-  },
-  {
-    title: "Customer Portal Rebuild",
-    category: "Web Product",
-    client: "B2B logistics company",
-    description:
-      "Rebuilt a dated customer-facing portal into a modern, responsive web application with self-service account management and shipment tracking.",
-    tech: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
-    outcome:
-      "Increased self-service ticket resolution by 45%, reducing support team load.",
-  },
-  {
-    title: "LLM-Powered Internal Knowledge Assistant",
-    category: "AI/ML System",
-    client: "Professional services firm",
-    description:
-      "Developed a retrieval-augmented internal assistant to help staff search policy documents, past proposals, and compliance guidance in natural language.",
-    tech: ["Python", "LangChain", "OpenAI API", "Pinecone"],
-    outcome:
-      "Cut average document-search time from 12 minutes to under 90 seconds across a 200-person team.",
-  },
-  {
-    title: "AI Training Program for Product Teams",
-    category: "AI Training",
-    client: "Enterprise retail company",
-    description:
-      "Delivered a 6-week hands-on training program to upskill product and engineering teams on applied ML fundamentals and responsible AI practices.",
-    tech: ["Custom curriculum", "Jupyter notebooks", "Internal sandbox"],
-    outcome:
-      "40 staff certified internally; two AI-driven product initiatives launched within 6 months.",
-  },
-];
+function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: company.name,
+    description: seo.description,
+    email: company.email,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Los Angeles",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+  };
 
-function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em]">My Company</span>
-          <a
-            href="#work"
-            className="text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            Selected work
-          </a>
-        </div>
-      </header>
-
+    <SiteFrame>
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <main>
-        <section className="mx-auto max-w-5xl px-6 py-24">
-          <p className="text-sm uppercase tracking-[0.2em] text-primary">
-            AI · Data · Product engineering
-          </p>
-          <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-            We build the systems that turn your data into decisions.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            From predictive models and streaming platforms to customer-facing products and
-            hands-on team training — delivered end to end.
-          </p>
-        </section>
+        <Hero />
+        <ProofStrip />
 
-        <section id="work" className="border-t border-border bg-secondary/40">
-          <div className="mx-auto max-w-5xl px-6 py-20">
-            <h2 className="text-2xl font-semibold tracking-tight">Selected work</h2>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {work.map((item) => (
-                <article
-                  key={item.title}
-                  className="flex flex-col rounded-lg border border-border bg-card p-6"
-                >
-                  <span className="text-xs uppercase tracking-[0.15em] text-primary">
-                    {item.category}
-                  </span>
-                  <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{item.client}</p>
-                  <p className="mt-4 text-sm leading-relaxed">{item.description}</p>
-                  <p className="mt-4 border-l-2 border-accent pl-3 text-sm font-medium">
-                    {item.outcome}
-                  </p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {item.tech.map((t) => (
-                      <li
-                        key={t}
-                        className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
-                      >
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
+        <FieldBand>
+          <SectionHeading icon="services" eyebrow="Capabilities" title="Engineering intelligence into useful products.">
+            We combine machine learning, product engineering, data systems, and practical training to
+            help teams build, deploy, and confidently use AI.
+          </SectionHeading>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <ServiceCard key={service.id} service={service} index={index} />
+            ))}
           </div>
-        </section>
-      </main>
+        </FieldBand>
 
-      <footer className="border-t border-border">
-        <div className="mx-auto max-w-5xl px-6 py-10 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} My Company
-        </div>
-      </footer>
-    </div>
+        <ScientificAIFeature />
+
+        <FieldBand>
+          <SectionHeading icon="process" eyebrow="How we work" title="From problem definition to production impact." />
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {processStages.map((step) => (
+              <ProcessStep key={step.n} step={step} />
+            ))}
+          </div>
+        </FieldBand>
+
+        <FieldBand>
+          <SectionHeading icon="work" eyebrow="Selected Work" title="Case Studies Built for Complex Problems">
+            A selection of AI, software, and data products designed to turn complex information into
+            practical, reliable workflows.
+          </SectionHeading>
+          <div className="mt-12">
+            <CaseStudiesSection />
+          </div>
+          <Link
+            to="/case-studies"
+            className="mt-10 inline-flex min-h-11 items-center text-sm font-medium text-primary"
+          >
+            View all case studies
+          </Link>
+        </FieldBand>
+
+        <FieldBand>
+          <SectionHeading
+            icon="training"
+            eyebrow="AI Training"
+            title="Help your team build and use AI with confidence."
+          >
+            Our training programs are designed around your team’s roles, tools, data, and real
+            workflows. Sessions can support engineers, analysts, researchers, product teams, and
+            business leaders.
+          </SectionHeading>
+          <div className="mt-10">
+            <TrainingTopics />
+          </div>
+          <ContactOpenButton className="mt-8 inline-flex min-h-11 items-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">
+            Discuss training for your team
+          </ContactOpenButton>
+        </FieldBand>
+
+        <FieldBand>
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <SectionHeading icon="about" eyebrow="About GeniusXLab" title="Built for difficult problems worth solving.">
+                GeniusXLab is an applied AI and software engineering company. We partner with ambitious
+                organizations to design intelligent systems that are useful, maintainable, and ready
+                for real-world adoption.
+              </SectionHeading>
+              <p className="section-type mt-5 max-w-[40ch] text-base font-medium leading-7 text-foreground">
+                Our work sits at the intersection of AI/ML engineering, web development, data systems,
+                and technical education. From an early proof of concept to a production platform or
+                specialist model for mathematics and physics, we bring practical product thinking and
+                technical rigor to every engagement.
+              </p>
+            </div>
+            <CollaborationCard />
+          </div>
+        </FieldBand>
+
+        <FieldBand>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="section-type inline-flex items-center gap-2 text-[11px] font-medium tracking-[0.22em] uppercase text-primary">
+              <TitleIcon name="contact" className="size-3.5" />
+              Contact
+            </p>
+            <h2 className="section-type font-display mt-3 text-4xl text-foreground md:text-5xl">
+              Tell us what you are building.
+            </h2>
+            <span aria-hidden className="mx-auto mt-4 block h-px w-12 bg-primary/50" />
+            <p className="section-type mx-auto mt-5 max-w-[40ch] text-base font-medium leading-7 text-foreground">
+              Share the challenge, users, available data, and desired outcome. Whether you need an
+              AI system, a web platform, a specialist scientific model, or team training, we will
+              help identify a practical next step.
+            </p>
+            <p className="mt-6 text-sm">
+              <a href={`mailto:${company.email}`} className="text-primary hover:underline">
+                {company.email}
+              </a>
+            </p>
+            <ContactOpenButton className="mt-8 inline-flex min-h-11 items-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">
+              Start a project
+            </ContactOpenButton>
+          </div>
+        </FieldBand>
+      </main>
+    </SiteFrame>
   );
 }
