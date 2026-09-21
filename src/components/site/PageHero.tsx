@@ -26,19 +26,29 @@ export function PageHero({
 }) {
   return (
     <section
-      className={`relative flex items-center justify-center overflow-hidden bg-transparent ${compact ? "min-h-[28rem] py-16" : "min-h-[36rem] py-24 md:min-h-[40rem] md:py-32"}`}
+      className={`relative flex overflow-hidden bg-transparent ${
+        compact
+          ? "min-h-[28rem] items-center py-16"
+          : poster
+            ? "min-h-[36rem] items-start pt-24 pb-20 md:min-h-[42rem] md:pt-28 md:pb-24"
+            : "min-h-[36rem] items-center py-24 md:min-h-[40rem] md:py-32"
+      }`}
     >
       {poster ? (
         <img
           src={poster.src}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute inset-0 size-full object-cover object-[center_22%]"
+          className="pointer-events-none absolute inset-0 size-full object-cover object-center"
         />
       ) : null}
 
-      <div className="hero-enter relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <div className="glass-surface rounded-3xl px-6 py-10 sm:px-10">
+      <div
+        className={`hero-enter relative z-10 mx-auto max-w-3xl px-6 text-center ${poster ? "w-full" : ""}`}
+      >
+        <div
+          className={`glass-surface rounded-3xl px-6 py-10 sm:px-10 ${poster ? "bg-background/70 backdrop-blur-md dark:bg-card/70" : ""}`}
+        >
           {eyebrow ? (
             <p className="inline-flex items-center justify-center gap-2 text-[11px] font-medium tracking-[0.2em] uppercase text-primary">
               {icon ? <TitleIcon name={icon} className="size-3.5" /> : null}

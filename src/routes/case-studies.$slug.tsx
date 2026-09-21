@@ -18,12 +18,12 @@ export const Route = createFileRoute("/case-studies/$slug")({
     meta: [
       {
         title: loaderData?.study
-          ? `${loaderData.study.title} — GeniusXLab`
-          : "Case Study — GeniusXLab",
+          ? `${loaderData.study.title} — GenixaLab LLC`
+          : "Case Study — GenixaLab LLC",
       },
       {
         name: "description",
-        content: loaderData?.study?.description ?? "Selected GeniusXLab case study.",
+        content: loaderData?.study?.description ?? "Selected GenixaLab LLC case study.",
       },
     ],
   }),

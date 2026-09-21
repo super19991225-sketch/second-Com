@@ -11,11 +11,11 @@ import { cultureMoments, leadership, workModels } from "@/data/about";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — GeniusXLab" },
+      { title: "About — GenixaLab LLC" },
       {
         name: "description",
         content:
-          "Leadership, work model, and studio culture at GeniusXLab, an applied AI studio in Los Angeles.",
+          "Leadership, work model, and studio culture at GenixaLab LLC, an applied AI studio in Los Angeles.",
       },
     ],
   }),
@@ -29,11 +29,11 @@ function AboutPage() {
         <PageHero
           kind="sweep"
           icon="about"
-          eyebrow="About GeniusXLab"
+          eyebrow="About GenixaLab LLC"
           title="Built for difficult problems worth solving."
           poster={{
-            src: "/images/stage-about.png?v=walk",
-            alt: "Looking down a studio hall with people working at different distances",
+            src: "/images/stage-about.png?v=ots",
+            alt: "Over-the-shoulder view of colleagues in a bright studio lobby",
           }}
           actions={
             <ContactOpenButton className="inline-flex min-h-11 items-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">
@@ -41,7 +41,7 @@ function AboutPage() {
             </ContactOpenButton>
           }
         >
-          GeniusXLab is a Los Angeles studio for applied AI. The page is the people who lead the
+          GenixaLab LLC is a Los Angeles studio for applied AI. The page is the people who lead the
           work, the model we use with a client team, and the life around the desks.
         </PageHero>
 

@@ -8,7 +8,7 @@ import { SiteFrame } from "@/components/site/SiteFrame";
 export const Route = createFileRoute("/scientific-ai/")({
   head: () => ({
     meta: [
-      { title: "Scientific AI — GeniusXLab" },
+      { title: "Scientific AI — GenixaLab LLC" },
       {
         name: "description",
         content:

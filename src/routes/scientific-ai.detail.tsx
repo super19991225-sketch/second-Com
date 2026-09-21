@@ -11,11 +11,11 @@ import { scientificCapabilities } from "@/data/services";
 export const Route = createFileRoute("/scientific-ai/detail")({
   head: () => ({
     meta: [
-      { title: "Scientific AI — How the work is built — GeniusXLab" },
+      { title: "Scientific AI — How the work is built — GenixaLab LLC" },
       {
         name: "description",
         content:
-          "How GeniusXLab builds mathematical reasoning, physics-informed models, and scientific data systems.",
+          "How GenixaLab LLC builds mathematical reasoning, physics-informed models, and scientific data systems.",
       },
     ],
   }),

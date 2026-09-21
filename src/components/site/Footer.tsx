@@ -87,7 +87,7 @@ export function Footer() {
                   href={headquarters.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Open GeniusXLab headquarters in Google Maps"
+                  aria-label="Open GenixaLab LLC headquarters in Google Maps"
                   className={`${linkClass} items-start`}
                 >
                   <MapPin
@@ -120,7 +120,7 @@ export function Footer() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Visit GeniusXLab on ${item.label}`}
+                      aria-label={`Visit GenixaLab LLC on ${item.label}`}
                       className={linkClass}
                     >
                       <Icon className={iconClass} aria-hidden />
@@ -133,7 +133,7 @@ export function Footer() {
 
             <div className="h-[200px] w-full overflow-hidden rounded-xl border border-white/15 bg-white/5 sm:h-full sm:min-h-[200px]">
               <iframe
-                title="GeniusXLab headquarters location in Kwun Tong, Hong Kong"
+                title="GenixaLab LLC headquarters location in Kwun Tong, Hong Kong"
                 src={headquarters.embedUrl}
                 className="h-full min-h-[200px] w-full border-0"
                 loading="lazy"

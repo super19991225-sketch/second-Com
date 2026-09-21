@@ -9,7 +9,7 @@ import { TrainingTopics } from "@/components/site/TrainingTopics";
 export const Route = createFileRoute("/training")({
   head: () => ({
     meta: [
-      { title: "AI Training — GeniusXLab" },
+      { title: "AI Training — GenixaLab LLC" },
       {
         name: "description",
         content:

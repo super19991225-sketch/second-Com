@@ -7,7 +7,7 @@ import { company } from "@/data/site";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
-    meta: [{ title: "Terms of Use — GeniusXLab" }],
+    meta: [{ title: "Terms of Use — GenixaLab LLC" }],
   }),
   component: TermsPage,
 });

@@ -79,16 +79,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GeniusXLab — Applied AI, Software Engineering, and Technical Training" },
+      { title: "GenixaLab LLC — Applied AI, Software Engineering, and Technical Training" },
       {
         name: "description",
         content:
-          "GeniusXLab designs AI systems, web platforms, and practical training programs for organizations turning complex data and technical ideas into useful products.",
+          "GenixaLab LLC designs AI systems, web platforms, and practical training programs for organizations turning complex data and technical ideas into useful products.",
       },
-      { name: "author", content: "GeniusXLab" },
+      { name: "author", content: "GenixaLab LLC" },
       {
         property: "og:title",
-        content: "GeniusXLab — Applied AI, Software Engineering, and Technical Training",
+        content: "GenixaLab LLC — Applied AI, Software Engineering, and Technical Training",
       },
       {
         property: "og:description",

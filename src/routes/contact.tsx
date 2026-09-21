@@ -6,10 +6,10 @@ import { useContactModal } from "@/components/site/ContactModal";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — GeniusXLab" },
+      { title: "Contact — GenixaLab LLC" },
       {
         name: "description",
-        content: "Tell GeniusXLab what you are building. Email hello@genxalab.com.",
+        content: "Tell GenixaLab LLC what you are building. Email hello@genixalab.com.",
       },
     ],
   }),

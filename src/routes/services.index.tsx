@@ -11,7 +11,7 @@ import { services } from "@/data/services";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Services — GeniusXLab" },
+      { title: "Services — GenixaLab LLC" },
       {
         name: "description",
         content:

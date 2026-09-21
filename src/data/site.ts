@@ -1,16 +1,18 @@
 export const company = {
-  name: "GeniusXLab",
+  name: "GenixaLab LLC",
+  /** Display wordmark in the nav — set in real type, not in the logo image. */
+  brand: "GenixaLab",
   shortName: "GX",
   tagline: "Applied AI, Software Engineering, and Technical Training",
   description:
     "Applied AI, software engineering, and technical training for useful, dependable systems.",
-  email: "hello@genxalab.com",
+  email: "hello@genixalab.com",
   location: "Los Angeles, California",
   year: 2026,
 } as const;
 
 export const headquarters = {
-  name: "GeniusXLab Headquarters",
+  name: "GenixaLab LLC Headquarters",
   building: "CORE45",
   street: "43–45 Tsun Yip Street",
   city: "Kwun Tong, Kowloon, Hong Kong",
@@ -44,7 +46,7 @@ export const legalNav = [
   { to: "/terms", label: "Terms of Use" },
 ] as const;
 
-// Platform roots only — no verified GeniusXLab org URLs exist in the repo yet.
+// Platform roots only — no verified GenixaLab LLC org URLs exist in the repo yet.
 export const social = [
   { href: "https://www.linkedin.com/", label: "LinkedIn" },
   { href: "https://github.com/", label: "GitHub" },
@@ -70,7 +72,7 @@ export const stageOptions = [
 ] as const;
 
 export const seo = {
-  title: "GeniusXLab — Applied AI, Software Engineering, and Technical Training",
+  title: "GenixaLab LLC — Applied AI, Software Engineering, and Technical Training",
   description:
-    "GeniusXLab designs AI systems, web platforms, and practical training programs for organizations turning complex data and technical ideas into useful products.",
+    "GenixaLab LLC designs AI systems, web platforms, and practical training programs for organizations turning complex data and technical ideas into useful products.",
 };

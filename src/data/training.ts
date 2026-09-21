@@ -1,8 +1,8 @@
 export const trainingTopics = [
   {
     title: "AI and machine learning fundamentals",
-    image: "/images/train-fundamentals.png?v=gaze",
-    alt: "Four professionals at individual desks, each looking at a neural network on their own laptop",
+    image: "/images/train-fundamentals.png?v=ots",
+    alt: "Students seen from behind in a training room facing a neural-network whiteboard",
     icon: "brain",
   },
   {
@@ -31,8 +31,8 @@ export const trainingTopics = [
   },
   {
     title: "Data preparation and annotation",
-    image: "/images/train-data.png?v=gaze",
-    alt: "Three professionals looking at data annotation tools on their own laptops",
+    image: "/images/train-data.png?v=tpl",
+    alt: "Over-the-shoulder view of three annotators labeling street, medical, and aerial images",
     icon: "tags",
   },
   {

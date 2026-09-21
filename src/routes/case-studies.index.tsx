@@ -9,7 +9,7 @@ import { SiteFrame } from "@/components/site/SiteFrame";
 export const Route = createFileRoute("/case-studies/")({
   head: () => ({
     meta: [
-      { title: "Case Studies — GeniusXLab" },
+      { title: "Case Studies — GenixaLab LLC" },
       {
         name: "description",
         content:
@@ -30,7 +30,7 @@ function CaseStudiesIndexPage() {
           eyebrow="Selected Work"
           title="Case Studies Built for Complex Problems"
           poster={{
-            src: "/images/stage-work.png?v=light",
+            src: "/images/stage-work.png?v=safe",
             alt: "Selected work boards and a laptop on a light studio desk",
           }}
           actions={

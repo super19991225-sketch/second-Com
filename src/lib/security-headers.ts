@@ -6,7 +6,7 @@ const PRODUCTION_CSP = [
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com data:",
-  "img-src 'self' data: blob: https://*.google.com https://*.gstatic.com https://*.googleapis.com",
+  "img-src 'self' data: blob: https://flagcdn.com https://*.google.com https://*.gstatic.com https://*.googleapis.com",
   "frame-src https://maps.google.com https://www.google.com",
   "connect-src 'self'",
 ].join("; ");

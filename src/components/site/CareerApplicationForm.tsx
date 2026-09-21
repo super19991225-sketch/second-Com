@@ -94,6 +94,7 @@ export function CareerApplicationForm({
 }) {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [country, setCountry] = useState<CountryOption>(countryCodes[0]);
   const [resume, setResume] = useState<File | null>(null);
   const [workAuthorized, setWorkAuthorized] = useState<"" | "yes" | "no">("");
@@ -151,14 +152,19 @@ export function CareerApplicationForm({
     if (resume) payload.set("resume", resume, resume.name);
 
     setStatus("submitting");
+    setSubmitError(null);
     try {
       const response = await fetch("/api/careers", {
         method: "POST",
         body: payload,
       });
-      if (!response.ok) throw new Error("Request failed");
+      if (!response.ok) {
+        const body = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(body?.error || "Request failed");
+      }
       setStatus("success");
-    } catch {
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : null);
       setStatus("error");
     }
   }
@@ -341,7 +347,8 @@ export function CareerApplicationForm({
 
       {status === "error" ? (
         <p role="alert" className="text-sm text-destructive">
-          The application could not be sent. Email {applicationsEmail} or try again.
+          {submitError ?? "The application could not be sent."} Email {applicationsEmail} or try
+          again.
         </p>
       ) : null}
       <button

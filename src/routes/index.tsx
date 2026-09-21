@@ -126,10 +126,10 @@ function HomePage() {
             <div>
               <SectionHeading
                 icon="about"
-                eyebrow="About GeniusXLab"
+                eyebrow="About GenixaLab LLC"
                 title="Built for difficult problems worth solving."
               >
-                GeniusXLab is an applied AI and software engineering company. We partner with
+                GenixaLab LLC is an applied AI and software engineering company. We partner with
                 ambitious organizations to design intelligent systems that are useful, maintainable,
                 and ready for real-world adoption.
               </SectionHeading>

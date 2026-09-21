@@ -7,7 +7,7 @@ import { company } from "@/data/site";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
-    meta: [{ title: "Privacy Policy — GeniusXLab" }],
+    meta: [{ title: "Privacy Policy — GenixaLab LLC" }],
   }),
   component: PrivacyPage,
 });

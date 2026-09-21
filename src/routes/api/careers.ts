@@ -63,7 +63,7 @@ async function handleCareer(request: Request) {
   }
 
   const roleTitle = getOpenRole(role)?.title ?? role;
-  const subject = `[GeniusXLab] Application — ${roleTitle} — ${name}`;
+  const subject = `[GenixaLab LLC] Application — ${roleTitle} — ${name}`;
   const textBody = [
     `Application — ${roleTitle}`,
     name,
@@ -84,7 +84,7 @@ async function handleCareer(request: Request) {
   const html = `<div style="background:#f6f3ee;padding:24px;font-family:Arial,sans-serif;">
   <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e6e1d8;">
     <div style="background:#1c1917;color:#f6f3ee;padding:20px 24px;">
-      <div style="font:600 12px Arial,sans-serif;letter-spacing:.14em;">GENIUSXLAB</div>
+      <div style="font:600 12px Arial,sans-serif;letter-spacing:.14em;">GENIXALAB LLC</div>
       <div style="margin-top:8px;font:400 12px Arial,sans-serif;letter-spacing:.08em;color:#d6d3d1;">JOB APPLICATION</div>
     </div>
     <div style="padding:24px;">
@@ -122,7 +122,14 @@ async function handleCareer(request: Request) {
     });
   } catch (error) {
     console.error("[careers] SMTP send failed", error);
-    return Response.json({ ok: false, error: "Could not send application." }, { status: 502 });
+    const detail =
+      import.meta.env.DEV && error instanceof Error
+        ? ` Could not reach mailbox (${error.message}).`
+        : "";
+    return Response.json(
+      { ok: false, error: `Could not send application.${detail}` },
+      { status: 502 },
+    );
   }
 
   return Response.json({ ok: true });

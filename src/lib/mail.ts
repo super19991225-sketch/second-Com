@@ -17,6 +17,13 @@ type OutboundMail = {
 function requiredEnv(name: string) {
   const value = process.env[name]?.trim();
   if (!value) throw new Error(`Missing ${name}`);
+  // Strip wrapping quotes from .env values like SMTP_PASS="..."
+  if (
+    (value.startsWith('"') && value.endsWith('"')) ||
+    (value.startsWith("'") && value.endsWith("'"))
+  ) {
+    return value.slice(1, -1);
+  }
   return value;
 }
 
@@ -26,10 +33,14 @@ function transporter() {
     host: requiredEnv("SMTP_HOST"),
     port,
     secure: port === 465,
+    requireTLS: port === 587,
     auth: {
       user: requiredEnv("SMTP_USER"),
       pass: requiredEnv("SMTP_PASS"),
     },
+    connectionTimeout: 20_000,
+    greetingTimeout: 20_000,
+    socketTimeout: 30_000,
   });
 }
 
@@ -37,7 +48,7 @@ export async function sendMail(message: OutboundMail) {
   const mailbox = requiredEnv("SMTP_USER");
 
   await transporter().sendMail({
-    from: mailbox,
+    from: `"GenixaLab LLC" <${mailbox}>`,
     to: mailbox,
     replyTo: message.replyTo,
     subject: message.subject,

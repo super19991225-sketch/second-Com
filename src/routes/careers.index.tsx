@@ -12,11 +12,11 @@ import { applicationsEmail, careerFocus, hiringSteps, openRoles } from "@/data/c
 export const Route = createFileRoute("/careers/")({
   head: () => ({
     meta: [
-      { title: "Careers — GeniusXLab" },
+      { title: "Careers — GenixaLab LLC" },
       {
         name: "description",
         content:
-          "Open roles at GeniusXLab: Senior Web App Engineer, Physicist for Physics AI, and Senior Data Analyst.",
+          "Open roles at GenixaLab LLC: Senior Web App Engineer, Physicist for Physics AI, and Senior Data Analyst.",
       },
     ],
   }),
@@ -33,7 +33,7 @@ function CareersPage() {
           eyebrow="Careers"
           title="Build systems that have to work."
           poster={{
-            src: "/images/stage-careers.png?v=hire",
+            src: "/images/stage-careers.png?v=safe",
             alt: "A candidate and studio members celebrating after final hiring terms",
           }}
           actions={
@@ -173,7 +173,7 @@ function CareersPage() {
                 Open application
               </Link>
               <a
-                href={`mailto:${applicationsEmail}?subject=Careers%20at%20GeniusXLab`}
+                href={`mailto:${applicationsEmail}?subject=Careers%20at%20GenixaLab%20LLC`}
                 className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-6 text-sm font-medium text-card-foreground"
               >
                 {applicationsEmail}

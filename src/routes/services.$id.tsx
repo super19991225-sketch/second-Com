@@ -18,12 +18,12 @@ export const Route = createFileRoute("/services/$id")({
     meta: [
       {
         title: loaderData?.service
-          ? `${loaderData.service.title} — GeniusXLab`
-          : "Service — GeniusXLab",
+          ? `${loaderData.service.title} — GenixaLab LLC`
+          : "Service — GenixaLab LLC",
       },
       {
         name: "description",
-        content: loaderData?.service?.description ?? "GeniusXLab service.",
+        content: loaderData?.service?.description ?? "GenixaLab LLC service.",
       },
     ],
   }),

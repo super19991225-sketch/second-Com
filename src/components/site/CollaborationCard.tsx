@@ -4,8 +4,8 @@ import { collaborationPoints } from "@/data/training";
 export function CollaborationCard() {
   return (
     <SmartTicket
-      image="/images/ticket-collab.png?v=gaze"
-      alt="Four colleagues at a studio table, each focused on their own laptop screen"
+      image="/images/ticket-collab.png?v=safe"
+      alt="Client meeting around a table with documents and a tablet"
       eyebrow="Collaboration"
       badge="Studio"
       title="Technical depth, communicated clearly."

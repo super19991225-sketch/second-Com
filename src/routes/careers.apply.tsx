@@ -22,13 +22,13 @@ export const Route = createFileRoute("/careers/apply")({
     return {
       meta: [
         {
-          title: role ? `Apply — ${role.title} — GeniusXLab` : "Apply — Careers — GeniusXLab",
+          title: role ? `Apply — ${role.title} — GenixaLab LLC` : "Apply — Careers — GenixaLab LLC",
         },
         {
           name: "description",
           content: role
-            ? `Apply for ${role.title} at GeniusXLab.`
-            : "Apply for an open role at GeniusXLab.",
+            ? `Apply for ${role.title} at GenixaLab LLC.`
+            : "Apply for an open role at GenixaLab LLC.",
         },
       ],
     };
@@ -50,9 +50,9 @@ function CareerApplyPage() {
           kind="breathe"
           icon="careers"
           eyebrow="Application"
-          title={role ? `Apply for ${role.title}` : "Apply to GeniusXLab"}
+          title={role ? `Apply for ${role.title}` : "Apply to GenixaLab LLC"}
           poster={{
-            src: role?.image ?? "/images/stage-careers.png?v=hire",
+            src: role?.image ?? "/images/stage-careers.png?v=safe",
             alt: role?.alt ?? "A candidate and studio members after hiring terms",
           }}
           actions={
