@@ -22,7 +22,10 @@ function TermsPage() {
           icon="terms"
           eyebrow="Legal"
           title="Terms of Use"
-          poster={{ src: "/images/stage-legal.png", alt: "Stacked linen documents on a stone desk" }}
+          poster={{
+            src: "/images/stage-legal.png",
+            alt: "Stacked linen documents on a stone desk",
+          }}
         />
         <FieldBand>
           <div className="mx-auto max-w-3xl space-y-4 text-base font-light leading-7 text-muted-foreground">

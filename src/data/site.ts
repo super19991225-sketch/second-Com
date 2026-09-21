@@ -4,7 +4,7 @@ export const company = {
   tagline: "Applied AI, Software Engineering, and Technical Training",
   description:
     "Applied AI, software engineering, and technical training for useful, dependable systems.",
-  email: "hello@geniusxlab.com",
+  email: "hello@genxalab.com",
   location: "Los Angeles, California",
   year: 2026,
 } as const;

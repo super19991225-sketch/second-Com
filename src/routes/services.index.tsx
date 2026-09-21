@@ -54,7 +54,11 @@ function ServicesPage() {
           a real team. Each engagement is scoped to a defined problem, not a generic platform.
         </PageHero>
         <FieldBand>
-          <SectionHeading icon="services" eyebrow="Capabilities" title="Engineering intelligence into useful products." />
+          <SectionHeading
+            icon="services"
+            eyebrow="Capabilities"
+            title="Engineering intelligence into useful products."
+          />
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <div key={service.id} id={service.id}>

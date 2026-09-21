@@ -22,7 +22,10 @@ function PrivacyPage() {
           icon="privacy"
           eyebrow="Legal"
           title="Privacy Policy"
-          poster={{ src: "/images/stage-legal.png", alt: "Stacked linen documents on a stone desk" }}
+          poster={{
+            src: "/images/stage-legal.png",
+            alt: "Stacked linen documents on a stone desk",
+          }}
         >
           Last updated 2026.
         </PageHero>

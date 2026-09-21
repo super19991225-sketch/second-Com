@@ -18,8 +18,8 @@ export function Hero() {
       eyebrow="Scientific AI · Engineering · Products · Training"
       title="Build intelligent software your team can trust."
       poster={{
-        src: "/images/room-studio-full.png?v=keep",
-        alt: "Six studio members gathered around three dashboard monitors",
+        src: "/images/room-studio-full.png?v=workshop",
+        alt: "Studio team members at individual desks, each with their own laptop and monitor",
       }}
       actions={
         <>

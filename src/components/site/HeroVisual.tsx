@@ -7,7 +7,15 @@ export function HeroVisual() {
     >
       <svg viewBox="0 0 400 400" className="h-full w-full" aria-hidden>
         <rect width="400" height="400" fill="oklch(0.995 0.006 90)" />
-        <rect x="28" y="36" width="220" height="148" rx="10" fill="oklch(0.97 0.012 90)" stroke="oklch(0.9 0.015 85)" />
+        <rect
+          x="28"
+          y="36"
+          width="220"
+          height="148"
+          rx="10"
+          fill="oklch(0.97 0.012 90)"
+          stroke="oklch(0.9 0.015 85)"
+        />
         <rect x="44" y="56" width="72" height="8" rx="4" fill="oklch(0.45 0.17 264)" />
         <rect x="44" y="76" width="188" height="6" rx="3" fill="oklch(0.9 0.015 85)" />
         <rect x="44" y="92" width="150" height="6" rx="3" fill="oklch(0.9 0.015 85)" />
@@ -17,9 +25,21 @@ export function HeroVisual() {
           stroke="oklch(0.45 0.17 264)"
           strokeWidth="2"
         />
-        <circle cx="310" cy="78" r="38" fill="none" stroke="oklch(0.45 0.1 300)" strokeWidth="1.5" />
+        <circle
+          cx="310"
+          cy="78"
+          r="38"
+          fill="none"
+          stroke="oklch(0.45 0.1 300)"
+          strokeWidth="1.5"
+        />
         <circle cx="310" cy="78" r="3" fill="oklch(0.45 0.17 264)" />
-        <path d="M272 78 Q310 40 348 78" fill="none" stroke="oklch(0.45 0.17 264)" strokeWidth="1.25" />
+        <path
+          d="M272 78 Q310 40 348 78"
+          fill="none"
+          stroke="oklch(0.45 0.17 264)"
+          strokeWidth="1.25"
+        />
         <text x="36" y="230" fill="oklch(0.24 0.05 260)" fontSize="18" fontFamily="Georgia, serif">
           ∇ · E = ρ / ε₀
         </text>

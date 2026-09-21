@@ -6,6 +6,7 @@ export function WorldGround() {
         alt=""
         className="stage-ken-soft absolute inset-0 size-full object-cover object-left opacity-100"
       />
+      <div className="absolute inset-0 bg-background/10 dark:bg-background/25" />
     </div>
   );
 }

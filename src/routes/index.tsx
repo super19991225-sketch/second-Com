@@ -17,6 +17,20 @@ import { processStages } from "@/data/process";
 import { services } from "@/data/services";
 import { company, seo } from "@/data/site";
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: company.name,
+  description: seo.description,
+  email: company.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Los Angeles",
+    addressRegion: "CA",
+    addressCountry: "US",
+  },
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -25,37 +39,27 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: seo.title },
       { property: "og:description", content: seo.description },
       { property: "og:type", content: "website" },
+      { "script:ld+json": organizationJsonLd },
     ],
   }),
   component: HomePage,
 });
 
 function HomePage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: company.name,
-    description: seo.description,
-    email: company.email,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Los Angeles",
-      addressRegion: "CA",
-      addressCountry: "US",
-    },
-  };
-
   return (
     <SiteFrame>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <main>
         <Hero />
         <ProofStrip />
 
         <FieldBand>
-          <SectionHeading icon="services" eyebrow="Capabilities" title="Engineering intelligence into useful products.">
-            We combine machine learning, product engineering, data systems, and practical training to
-            help teams build, deploy, and confidently use AI.
+          <SectionHeading
+            icon="services"
+            eyebrow="Capabilities"
+            title="Engineering intelligence into useful products."
+          >
+            We combine machine learning, product engineering, data systems, and practical training
+            to help teams build, deploy, and confidently use AI.
           </SectionHeading>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
@@ -67,7 +71,11 @@ function HomePage() {
         <ScientificAIFeature />
 
         <FieldBand>
-          <SectionHeading icon="process" eyebrow="How we work" title="From problem definition to production impact." />
+          <SectionHeading
+            icon="process"
+            eyebrow="How we work"
+            title="From problem definition to production impact."
+          />
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {processStages.map((step) => (
               <ProcessStep key={step.n} step={step} />
@@ -76,7 +84,11 @@ function HomePage() {
         </FieldBand>
 
         <FieldBand>
-          <SectionHeading icon="work" eyebrow="Selected Work" title="Case Studies Built for Complex Problems">
+          <SectionHeading
+            icon="work"
+            eyebrow="Selected Work"
+            title="Case Studies Built for Complex Problems"
+          >
             A selection of AI, software, and data products designed to turn complex information into
             practical, reliable workflows.
           </SectionHeading>
@@ -112,16 +124,20 @@ function HomePage() {
         <FieldBand>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <SectionHeading icon="about" eyebrow="About GeniusXLab" title="Built for difficult problems worth solving.">
-                GeniusXLab is an applied AI and software engineering company. We partner with ambitious
-                organizations to design intelligent systems that are useful, maintainable, and ready
-                for real-world adoption.
+              <SectionHeading
+                icon="about"
+                eyebrow="About GeniusXLab"
+                title="Built for difficult problems worth solving."
+              >
+                GeniusXLab is an applied AI and software engineering company. We partner with
+                ambitious organizations to design intelligent systems that are useful, maintainable,
+                and ready for real-world adoption.
               </SectionHeading>
               <p className="section-type mt-5 max-w-[40ch] text-base font-medium leading-7 text-foreground">
-                Our work sits at the intersection of AI/ML engineering, web development, data systems,
-                and technical education. From an early proof of concept to a production platform or
-                specialist model for mathematics and physics, we bring practical product thinking and
-                technical rigor to every engagement.
+                Our work sits at the intersection of AI/ML engineering, web development, data
+                systems, and technical education. From an early proof of concept to a production
+                platform or specialist model for mathematics and physics, we bring practical product
+                thinking and technical rigor to every engagement.
               </p>
             </div>
             <CollaborationCard />

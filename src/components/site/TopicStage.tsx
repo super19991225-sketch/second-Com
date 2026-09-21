@@ -1,14 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export type StageKind =
-  | "mosaic"
-  | "orbit"
-  | "film"
-  | "float"
-  | "sweep"
-  | "ink"
-  | "breathe"
-  | "paper";
+  "mosaic" | "orbit" | "film" | "float" | "sweep" | "ink" | "breathe" | "paper";
 
 export function TopicStage({ kind }: { kind: StageKind }) {
   const hostRef = useRef<HTMLDivElement>(null);

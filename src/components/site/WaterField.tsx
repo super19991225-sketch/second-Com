@@ -103,8 +103,7 @@ export function WaterField() {
         const row = y * simW;
         for (let x = 1; x < simW - 1; x += 1) {
           const i = row + x;
-          next[i] =
-            (curr[i - 1] + curr[i + 1] + curr[i - simW] + curr[i + simW]) / 2 - next[i];
+          next[i] = (curr[i - 1] + curr[i + 1] + curr[i - simW] + curr[i + simW]) / 2 - next[i];
           next[i] *= 0.968;
         }
       }
@@ -172,13 +171,7 @@ export function WaterField() {
         const scale = Math.max(panelW / image.naturalWidth, srcH / image.naturalHeight);
         const dw = image.naturalWidth * scale;
         const dh = image.naturalHeight * scale;
-        sctx.drawImage(
-          image,
-          index * panelW + (panelW - dw) / 2,
-          (srcH - dh) / 2,
-          dw,
-          dh,
-        );
+        sctx.drawImage(image, index * panelW + (panelW - dw) / 2, (srcH - dh) / 2, dw, dh);
       });
       sctx.filter = "none";
       sctx.fillStyle = "rgba(38, 48, 68, 0.16)";
@@ -249,7 +242,10 @@ export function WaterField() {
         <div className="water-drift absolute inset-y-0 left-[-18%] h-full w-[230%] min-w-[2200px]">
           <div className="flex h-full">
             {fields.map((field) => (
-              <figure key={field.title} className="relative h-full w-[16.66%] min-w-[320px] shrink-0">
+              <figure
+                key={field.title}
+                className="relative h-full w-[16.66%] min-w-[320px] shrink-0"
+              >
                 <img
                   src={field.image}
                   alt=""
@@ -272,9 +268,9 @@ export function WaterField() {
         className={`absolute inset-0 size-full ${live ? "opacity-100" : "opacity-0"}`}
       />
 
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(105deg,oklch(0.78_0.018_80/_0.9)_0%,oklch(0.78_0.018_80/_0.55)_24%,oklch(0.78_0.018_80/_0.15)_55%,transparent_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(105deg,color-mix(in_oklch,var(--background)_90%,transparent)_0%,color-mix(in_oklch,var(--background)_55%,transparent)_24%,color-mix(in_oklch,var(--background)_15%,transparent)_55%,transparent_100%)]" />
       <div
-        className="water-caustic pointer-events-none absolute inset-0 mix-blend-soft-light"
+        className="water-caustic pointer-events-none absolute inset-0 mix-blend-soft-light dark:opacity-40"
         style={{
           backgroundImage:
             "radial-gradient(ellipse 42% 16% at 18% 28%, oklch(1 0 0 / 0.42), transparent 62%), radial-gradient(ellipse 28% 12% at 68% 48%, oklch(1 0 0 / 0.28), transparent 58%), radial-gradient(ellipse 46% 18% at 46% 78%, oklch(1 0 0 / 0.22), transparent 62%)",

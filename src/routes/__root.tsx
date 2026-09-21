@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import { ContactModalProvider } from "@/components/site/ContactModal";
+import { themeBootScript } from "@/hooks/use-theme";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -85,7 +86,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "GeniusXLab designs AI systems, web platforms, and practical training programs for organizations turning complex data and technical ideas into useful products.",
       },
       { name: "author", content: "GeniusXLab" },
-      { property: "og:title", content: "GeniusXLab — Applied AI, Software Engineering, and Technical Training" },
+      {
+        property: "og:title",
+        content: "GeniusXLab — Applied AI, Software Engineering, and Technical Training",
+      },
       {
         property: "og:description",
         content:
@@ -105,7 +109,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+    ],
+    scripts: [
+      {
+        children: themeBootScript,
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -116,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

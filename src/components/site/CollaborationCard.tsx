@@ -4,8 +4,8 @@ import { collaborationPoints } from "@/data/training";
 export function CollaborationCard() {
   return (
     <SmartTicket
-      image="/images/ticket-collab.png?v=screens"
-      alt="Four colleagues looking at a laptop screen of a project dashboard"
+      image="/images/ticket-collab.png?v=gaze"
+      alt="Four colleagues at a studio table, each focused on their own laptop screen"
       eyebrow="Collaboration"
       badge="Studio"
       title="Technical depth, communicated clearly."
@@ -13,7 +13,7 @@ export function CollaborationCard() {
       footer={
         <ul className="mt-4 space-y-2.5">
           {collaborationPoints.map((point) => (
-              <li key={point} className="flex gap-3 text-sm font-medium leading-6 text-foreground">
+            <li key={point} className="flex gap-3 text-sm font-medium leading-6 text-foreground">
               <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
               <span>{point}</span>
             </li>

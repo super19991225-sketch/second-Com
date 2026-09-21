@@ -14,8 +14,8 @@ export function ScientificAIFeature({ explore = "index" }: { explore?: "index" |
         title="AI designed for mathematical and physical systems."
       >
         We develop domain-aware AI tools for mathematical reasoning, scientific data, engineering
-        simulations, and physics-based workflows. Our approach combines modern machine learning
-        with structured data, domain benchmarks, evaluation frameworks, and expert review.
+        simulations, and physics-based workflows. Our approach combines modern machine learning with
+        structured data, domain benchmarks, evaluation frameworks, and expert review.
       </SectionHeading>
       <div className="mt-12 grid gap-5 md:grid-cols-3">
         {scientificCapabilities.map((item, index) => {
@@ -51,8 +51,8 @@ export function ScientificAIFeature({ explore = "index" }: { explore?: "index" |
         </Link>
       )}
       <p className="section-type mt-8 max-w-[40ch] text-sm font-medium leading-6 text-foreground">
-        Specialist AI is designed for defined domains and validated use cases, with clear
-        evaluation and human expert review where required.
+        Specialist AI is designed for defined domains and validated use cases, with clear evaluation
+        and human expert review where required.
       </p>
     </FieldBand>
   );

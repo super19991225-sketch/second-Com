@@ -3,16 +3,11 @@ import { useEffect, useRef } from "react";
 
 import { Logo } from "@/components/site/Logo";
 import { ContactOpenButton } from "@/components/site/ContactModal";
+import { ThemeToggle } from "@/components/site/ThemeToggle";
 import { TitleIcon, type TitleIconName } from "@/components/site/TitleIcon";
 import { primaryNav } from "@/data/site";
 
-export function MobileMenu({
-  open,
-  onClose,
-}: {
-  open: boolean;
-  onClose: () => void;
-}) {
+export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -73,16 +68,19 @@ export function MobileMenu({
         aria-label="Site menu"
         className="absolute inset-x-0 top-0 bg-background/95 px-6 pb-8 pt-5 shadow-none backdrop-blur-md"
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <Logo />
-          <button
-            ref={closeRef}
-            type="button"
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border text-sm"
-            onClick={onClose}
-          >
-            Close
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              ref={closeRef}
+              type="button"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border text-sm"
+              onClick={onClose}
+            >
+              Close
+            </button>
+          </div>
         </div>
         <nav className="mt-8 flex flex-col gap-2" aria-label="Mobile">
           {primaryNav.map((item) => (

@@ -1,3 +1,7 @@
+import { company } from "./site";
+
+export const applicationsEmail = company.email;
+
 export const openRoles = [
   {
     id: "senior-web-app-engineer",
@@ -62,7 +66,7 @@ export const careerFocus = [
   {
     title: "Scientific Models",
     body: "Work on mathematical reasoning, physics-informed systems, and research data tools with clear evaluation.",
-    image: "/images/ticket-math-smart.png?v=look",
+    image: "/images/ticket-math-smart.png?v=gaze",
     alt: "People reviewing a mathematical proof on a laptop",
     chips: ["Math", "Physics", "Research"],
     icon: "scientific" as const,
@@ -95,24 +99,58 @@ export const careerFocus = [
 
 export const hiringSteps = [
   {
+    n: "01",
     title: "Apply online",
     body: "Choose a role, share your background, and tell us what you want to work on next.",
+    image: "/images/hire-apply.png?v=face2",
+    alt: "A candidate applying to an open role from home with the job application form clearly on screen",
+    chips: ["Role", "Background", "Note"],
+    icon: "search" as const,
   },
   {
+    n: "02",
     title: "We review your note",
     body: "We read your examples against the role brief and reply with a clear yes, no, or follow-up question.",
+    image: "/images/hire-review.png?v=cast2",
+    alt: "Studio reviewers reading a candidate resume on a monitor",
+    chips: ["Resume", "Examples", "Reply"],
+    icon: "book" as const,
   },
   {
+    n: "03",
     title: "Talk through the work",
-    body: "If there is a fit, we discuss a real problem, your approach, and how you prefer to collaborate.",
+    body: "If there is a fit, we discuss a real problem, your approach, and how you prefer to collaborate — all online.",
+    image: "/images/hire-talk.png?v=cast2",
+    alt: "A candidate in a remote video interview discussing a real problem on screen",
+    chips: ["Problem", "Approach", "Online"],
+    icon: "about" as const,
   },
   {
+    n: "04",
+    title: "A short working session",
+    body: "We spend focused time online on a real slice of work together so both sides can see how the collaboration feels.",
+    image: "/images/hire-session.png?v=cast2",
+    alt: "A candidate pairing online with an engineer over video and a shared editor",
+    chips: ["Work sample", "Remote", "Fit"],
+    icon: "spark" as const,
+  },
+  {
+    n: "05",
     title: "Agree final terms",
     body: "We align on scope, cadence, and expectations so both sides know what the engagement is.",
+    image: "/images/hire-terms.png?v=cast2",
+    alt: "A candidate and studio lead agreeing hiring terms on a video call",
+    chips: ["Scope", "Cadence", "Expectations"],
+    icon: "terms" as const,
   },
   {
+    n: "06",
     title: "Start with clear work",
     body: "You begin with defined first work, shared context, and room for the craft the problem requires.",
+    image: "/images/hire-start.png?v=cast2",
+    alt: "A new teammate starting defined first work with the project brief clearly on screen",
+    chips: ["First work", "Context", "Craft"],
+    icon: "rocket" as const,
   },
 ] as const;
 

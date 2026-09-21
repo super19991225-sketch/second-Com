@@ -7,8 +7,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { SiteFrame } from "@/components/site/SiteFrame";
 import { SmartTicket } from "@/components/site/SmartTicket";
 import { TicketCard } from "@/components/site/TicketCard";
-import { careerFocus, hiringSteps, openRoles } from "@/data/careers";
-import { company } from "@/data/site";
+import { applicationsEmail, careerFocus, hiringSteps, openRoles } from "@/data/careers";
 
 export const Route = createFileRoute("/careers/")({
   head: () => ({
@@ -108,8 +107,8 @@ function CareersPage() {
             eyebrow="Where we look"
             title="The kinds of craft that fit the studio."
           >
-            Beyond the open roles, these are the practices we keep hiring for when the projects
-            need them.
+            Beyond the open roles, these are the practices we keep hiring for when the projects need
+            them.
           </SectionHeading>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {careerFocus.map((item) => (
@@ -130,28 +129,30 @@ function CareersPage() {
         </FieldBand>
 
         <FieldBand>
-          <div className="glass-surface rounded-3xl px-6 py-10 text-foreground sm:px-10 sm:py-12">
-            <SectionHeading
-              icon="process"
-              eyebrow="How we hire"
-              title="A clear path from note to first work."
-            />
-            <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-              {hiringSteps.map((step, index) => (
-                <li key={step.title} className="border-l-2 border-primary pl-4 lg:border-l-0 lg:border-t-2 lg:pl-0 lg:pt-4">
-                  <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-primary">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="font-display mt-3 text-xl leading-tight text-foreground md:text-2xl">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-foreground md:text-base md:leading-7">
-                    {step.body}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <SectionHeading
+            icon="process"
+            eyebrow="How we hire"
+            title="A clear path from note to first work."
+          >
+            The same path for every role: apply, review, talk through the work, agree terms, then
+            start with clear first work.
+          </SectionHeading>
+          <ol className="mt-12 grid list-none gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {hiringSteps.map((step) => (
+              <li key={step.title} className="h-full">
+                <TicketCard
+                  image={step.image}
+                  alt={step.alt}
+                  eyebrow={`${step.n} · Hire`}
+                  badge="Process"
+                  title={step.title}
+                  icon={step.icon}
+                  body={step.body}
+                  chips={step.chips}
+                />
+              </li>
+            ))}
+          </ol>
         </FieldBand>
 
         <FieldBand>
@@ -161,8 +162,8 @@ function CareersPage() {
             </p>
             <h2 className="font-display mt-3 text-4xl leading-tight">Apply with a short note.</h2>
             <p className="mx-auto mt-4 max-w-md text-base leading-7 text-foreground">
-              Open the application form, choose a role, and include a few examples of your work.
-              You can also email {company.email}.
+              Open the application form, choose a role, and include a few examples of your work. You
+              can also email {applicationsEmail}.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
@@ -172,10 +173,10 @@ function CareersPage() {
                 Open application
               </Link>
               <a
-                href={`mailto:${company.email}?subject=Careers%20at%20GeniusXLab`}
+                href={`mailto:${applicationsEmail}?subject=Careers%20at%20GeniusXLab`}
                 className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-6 text-sm font-medium text-card-foreground"
               >
-                {company.email}
+                {applicationsEmail}
               </a>
             </div>
           </div>

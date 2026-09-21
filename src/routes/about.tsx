@@ -69,7 +69,11 @@ function AboutPage() {
         </FieldBand>
 
         <FieldBand>
-          <SectionHeading icon="process" eyebrow="Work model" title="How an engagement actually runs.">
+          <SectionHeading
+            icon="process"
+            eyebrow="Work model"
+            title="How an engagement actually runs."
+          >
             The model sits at the center. Around it: the client problem, the product that carries
             the result, and the training that lets their team keep the system.
           </SectionHeading>

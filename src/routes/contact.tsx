@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact — GeniusXLab" },
       {
         name: "description",
-        content: "Tell GeniusXLab what you are building. Email hello@geniusxlab.com.",
+        content: "Tell GeniusXLab what you are building. Email hello@genxalab.com.",
       },
     ],
   }),

@@ -169,8 +169,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
                         top: fragment.top,
                         width: fragment.width,
                         height: fragment.height,
-                        animationDelay:
-                          fragmentMode === "out" ? fragment.outDelay : fragment.delay,
+                        animationDelay: fragmentMode === "out" ? fragment.outDelay : fragment.delay,
                         ["--fx" as string]: fragment.fx,
                         ["--fy" as string]: fragment.fy,
                       }}

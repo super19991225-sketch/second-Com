@@ -1,8 +1,10 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 
-import { serviceOptions, stageOptions } from "@/data/site";
+import { company, serviceOptions, stageOptions } from "@/data/site";
 
-type FieldErrors = Partial<Record<"name" | "email" | "organization" | "service" | "stage" | "details", string>>;
+type FieldErrors = Partial<
+  Record<"name" | "email" | "organization" | "service" | "stage" | "details", string>
+>;
 
 export function ContactForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -18,7 +20,8 @@ export function ContactForm() {
     const details = String(form.get("details") ?? "").trim();
 
     if (!name) next.name = "Enter your full name.";
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = "Enter a valid work email.";
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      next.email = "Enter a valid work email.";
     if (!organization) next.organization = "Enter your company or organization.";
     if (!service) next.service = "Select a service.";
     if (!stage) next.stage = "Select a project stage.";
@@ -74,7 +77,13 @@ export function ContactForm() {
   return (
     <form className="space-y-5" onSubmit={onSubmit} noValidate>
       <Field label="Full name" name="name" error={errors.name}>
-        <input id="name" name="name" autoComplete="name" className={fieldClass} placeholder="Jordan Chen" />
+        <input
+          id="name"
+          name="name"
+          autoComplete="name"
+          className={fieldClass}
+          placeholder="Jordan Chen"
+        />
       </Field>
       <Field label="Work email" name="email" error={errors.email}>
         <input
@@ -96,7 +105,13 @@ export function ContactForm() {
         />
       </Field>
       <Field label="Website (optional)" name="website">
-        <input id="website" name="website" type="url" className={fieldClass} placeholder="https://" />
+        <input
+          id="website"
+          name="website"
+          type="url"
+          className={fieldClass}
+          placeholder="https://"
+        />
       </Field>
       <Field label="Service needed" name="service" error={errors.service}>
         <select id="service" name="service" defaultValue="" className={fieldClass}>
@@ -139,8 +154,7 @@ export function ContactForm() {
       </Field>
       {status === "error" ? (
         <p role="alert" className="text-sm text-destructive">
-          The form could not be sent. Email hello@geniusxlab.com or try again. The /api/contact
-          handler is the integration point for a mail provider.
+          The form could not be sent. Email {company.email} or try again.
         </p>
       ) : null}
       <button
@@ -162,7 +176,7 @@ function Field({
 }: {
   label: string;
   name: string;
-  error?: string;
+  error?: string | undefined;
   children: ReactNode;
 }) {
   return (

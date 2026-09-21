@@ -71,7 +71,8 @@ export const caseStudies: readonly CaseStudy[] = [
     tags: ["Simulation", "Pattern Detection", "Research", "Exploration"],
     outcome: "Faster analysis of scientific and engineering results.",
     image: "/images/case-sim-ui.png?v=light",
-    imageAlt: "Scientific visualization of particle simulations, heatmaps, and waveforms on a light canvas",
+    imageAlt:
+      "Scientific visualization of particle simulations, heatmaps, and waveforms on a light canvas",
   },
 ];
 

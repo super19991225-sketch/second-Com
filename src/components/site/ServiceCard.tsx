@@ -16,13 +16,7 @@ const iconMap: Record<Service["icon"], TitleIconName> = {
   compass: "compass",
 };
 
-export function ServiceCard({
-  service,
-  index = 0,
-}: {
-  service: Service;
-  index?: number;
-}) {
+export function ServiceCard({ service, index = 0 }: { service: Service; index?: number }) {
   const n = String(index + 1).padStart(2, "0");
 
   return (
@@ -42,7 +36,10 @@ export function ServiceCard({
           className="mt-4 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-primary hover:text-foreground"
         >
           Learn more
-          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+          <ArrowRight
+            className="size-4 transition-transform group-hover:translate-x-0.5"
+            aria-hidden
+          />
         </Link>
       }
     />

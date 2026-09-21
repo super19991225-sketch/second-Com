@@ -7,8 +7,7 @@ import { FieldBand } from "@/components/site/FieldBand";
 import { PageHero } from "@/components/site/PageHero";
 import { SiteFrame } from "@/components/site/SiteFrame";
 import { TitleIcon } from "@/components/site/TitleIcon";
-import { getOpenRole, openRoles } from "@/data/careers";
-import { company } from "@/data/site";
+import { applicationsEmail, getOpenRole, openRoles } from "@/data/careers";
 
 type ApplySearch = {
   role?: string;
@@ -23,9 +22,7 @@ export const Route = createFileRoute("/careers/apply")({
     return {
       meta: [
         {
-          title: role
-            ? `Apply — ${role.title} — GeniusXLab`
-            : "Apply — Careers — GeniusXLab",
+          title: role ? `Apply — ${role.title} — GeniusXLab` : "Apply — Careers — GeniusXLab",
         },
         {
           name: "description",
@@ -42,7 +39,7 @@ export const Route = createFileRoute("/careers/apply")({
 function CareerApplyPage() {
   const { role: roleFromSearch } = Route.useSearch();
   const initialRoleId =
-    roleFromSearch && getOpenRole(roleFromSearch) ? roleFromSearch : openRoles[0]?.id ?? "";
+    roleFromSearch && getOpenRole(roleFromSearch) ? roleFromSearch : (openRoles[0]?.id ?? "");
   const [roleId, setRoleId] = useState(initialRoleId);
   const role = getOpenRole(roleId);
 
@@ -135,16 +132,16 @@ function CareerApplyPage() {
                 </p>
                 <ul className="mt-3 space-y-3 text-sm leading-6 text-foreground">
                   <li className="border-l-2 border-primary pl-4">
-                    Include links or a short overview of work you have shipped.
+                    Upload a current resume (PDF or Word) and your LinkedIn profile.
                   </li>
                   <li className="border-l-2 border-primary pl-4">
-                    Say what you want to build next — not only what you have done.
+                    Include a short Loom introduction so we can hear how you work.
                   </li>
                 </ul>
                 <p className="mt-4 text-sm leading-6 text-foreground">
                   Prefer email? Write to{" "}
-                  <a href={`mailto:${company.email}`} className="text-primary hover:underline">
-                    {company.email}
+                  <a href={`mailto:${applicationsEmail}`} className="text-primary hover:underline">
+                    {applicationsEmail}
                   </a>
                   .
                 </p>
@@ -156,7 +153,8 @@ function CareerApplyPage() {
                 Application form
               </h2>
               <p className="mt-2 text-sm leading-6 text-foreground">
-                Changing the role updates the job description on the left.
+                Changing the role updates the job description on the left. Fields marked in the form
+                are required.
               </p>
               <div className="mt-8">
                 <CareerApplicationForm roleId={roleId} onRoleChange={setRoleId} />
