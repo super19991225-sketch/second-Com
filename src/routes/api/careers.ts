@@ -116,7 +116,7 @@ async function handleCareer(request: Request) {
         {
           filename: resume.name,
           content: Buffer.from(await resume.arrayBuffer()),
-          contentType: resume.type || undefined,
+          ...(resume.type ? { contentType: resume.type } : {}),
         },
       ],
     });
@@ -125,7 +125,7 @@ async function handleCareer(request: Request) {
     const message = error instanceof Error ? error.message : String(error);
     let hint = "Could not send application.";
     if (/Missing SMTP_/i.test(message)) {
-      hint = "Mail is not configured on the server (missing SMTP env vars).";
+      hint = `Mail is not configured on the server (${message}).`;
     } else if (/Invalid login|Authentication failed|EAUTH/i.test(message)) {
       hint = "Mailbox login failed. Check SMTP_USER / SMTP_PASS on Vercel, then redeploy.";
     } else if (/ENOTFOUND|ECONNECTION|ETIMEDOUT|ECONNREFUSED/i.test(message)) {

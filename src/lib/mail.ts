@@ -14,10 +14,24 @@ type OutboundMail = {
   attachments?: MailAttachment[];
 };
 
+/**
+ * Read env at runtime. Use Reflect.get so Nitro/Vite cannot replace
+ * process.env.SMTP_* with empty strings at build time on Vercel.
+ */
 function requiredEnv(name: string) {
-  const value = process.env[name]?.trim();
-  if (!value) throw new Error(`Missing ${name}`);
-  // Strip wrapping quotes from .env values like SMTP_PASS="..."
+  const raw = Reflect.get(process.env, name);
+  const value = typeof raw === "string" ? raw.trim() : "";
+  if (!value) {
+    const present = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS"].filter((key) =>
+      Boolean(Reflect.get(process.env, key)),
+    );
+    throw new Error(
+      `Missing ${name}` +
+        (present.length
+          ? ` (present: ${present.join(", ")})`
+          : " (no SMTP_* vars on this deployment)"),
+    );
+  }
   if (
     (value.startsWith('"') && value.endsWith('"')) ||
     (value.startsWith("'") && value.endsWith("'"))
