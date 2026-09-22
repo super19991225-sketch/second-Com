@@ -30,8 +30,8 @@ function CaseStudiesIndexPage() {
           eyebrow="Selected Work"
           title="Case Studies Built for Complex Problems"
           poster={{
-            src: "/images/stage-work.png?v=safe",
-            alt: "Selected work boards and a laptop on a light studio desk",
+            src: "/images/stage-work.png?v=flow",
+            alt: "Whiteboard with a hand-drawn flow diagram labeled Data, Model, Test, and Deploy",
           }}
           actions={
             <ContactOpenButton className="inline-flex min-h-11 items-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">
