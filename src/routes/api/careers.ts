@@ -3,12 +3,29 @@ import { createFileRoute } from "@tanstack/react-router";
 import { getOpenRole } from "@/data/careers";
 import { sendMail } from "@/lib/mail";
 
-const RESUME_MAX_BYTES = 8 * 1024 * 1024;
+// Keep under typical shared-host limits after base64 (~33% larger on the wire).
+const RESUME_MAX_BYTES = 4 * 1024 * 1024;
 
 function isAllowedResume(file: File) {
   const name = file.name.toLowerCase();
   const byExt = name.endsWith(".pdf") || name.endsWith(".doc") || name.endsWith(".docx");
   return byExt && file.size > 0 && file.size <= RESUME_MAX_BYTES;
+}
+
+function resumeContentType(filename: string, mime: string) {
+  if (mime && mime !== "application/octet-stream") return mime;
+  const lower = filename.toLowerCase();
+  if (lower.endsWith(".pdf")) return "application/pdf";
+  if (lower.endsWith(".doc")) return "application/msword";
+  if (lower.endsWith(".docx")) {
+    return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+  }
+  return "application/octet-stream";
+}
+
+function safeResumeFilename(name: string) {
+  const cleaned = name.replace(/[^\w.\- ()[\]]+/g, "_").replace(/\s+/g, " ").trim();
+  return cleaned.slice(0, 180) || "resume.pdf";
 }
 
 function text(form: FormData, key: string) {
@@ -114,9 +131,9 @@ async function handleCareer(request: Request) {
       replyTo: email,
       attachments: [
         {
-          filename: resume.name,
+          filename: safeResumeFilename(resume.name),
           content: Buffer.from(await resume.arrayBuffer()),
-          ...(resume.type ? { contentType: resume.type } : {}),
+          contentType: resumeContentType(resume.name, resume.type),
         },
       ],
     });
@@ -130,6 +147,9 @@ async function handleCareer(request: Request) {
       hint = "Mailbox login failed. Check SMTP_USER / SMTP_PASS on Vercel, then redeploy.";
     } else if (/ENOTFOUND|ECONNECTION|ETIMEDOUT|ECONNREFUSED/i.test(message)) {
       hint = "Could not reach the mail server. Check SMTP_HOST / SMTP_PORT, then redeploy.";
+    } else if (/550\s*5\.7\.1|Reject for policy/i.test(message)) {
+      hint =
+        "Mail server rejected the message (policy). Try a smaller PDF resume, or ask Ultamail to allow attachments from this app.";
     }
     return Response.json({ ok: false, error: hint }, { status: 502 });
   }

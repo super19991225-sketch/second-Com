@@ -103,6 +103,8 @@ async function handleContact(request: Request) {
       hint = "Mailbox login failed. Check SMTP_USER / SMTP_PASS on Vercel, then redeploy.";
     } else if (/ENOTFOUND|ECONNECTION|ETIMEDOUT|ECONNREFUSED/i.test(message)) {
       hint = "Could not reach the mail server. Check SMTP_HOST / SMTP_PORT, then redeploy.";
+    } else if (/550\s*5\.7\.1|Reject for policy/i.test(message)) {
+      hint = "Mail server rejected the message (policy). Contact Ultamail support if this persists.";
     }
     return Response.json({ ok: false, error: hint }, { status: 502 });
   }

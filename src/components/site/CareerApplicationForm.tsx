@@ -57,7 +57,7 @@ type FieldErrors = Partial<
   >
 >;
 
-const RESUME_MAX_BYTES = 8 * 1024 * 1024;
+const RESUME_MAX_BYTES = 4 * 1024 * 1024;
 const RESUME_ACCEPT =
   ".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
@@ -117,7 +117,7 @@ export function CareerApplicationForm({
     if (!linkedin || !isValidHttpUrl(linkedin)) next.linkedin = "Enter a valid LinkedIn URL.";
     if (!loom || !isValidHttpUrl(loom)) next.loom = "Enter a valid Loom video link.";
     if (!resume) next.resume = "Upload your resume (PDF or Word).";
-    else if (!isAllowedResume(resume)) next.resume = "Use a PDF or Word file up to 8 MB.";
+    else if (!isAllowedResume(resume)) next.resume = "Use a PDF or Word file up to 4 MB.";
     if (!workAuthorized) next.workAuthorized = "Select yes or no.";
     if (!needsSponsorship) next.needsSponsorship = "Select yes or no.";
     return next;
@@ -311,7 +311,7 @@ export function CareerApplicationForm({
                 <FileUp className="size-4" aria-hidden />
               </span>
               <span className="text-sm font-medium text-foreground">Upload resume</span>
-              <span className="text-xs text-muted-foreground">PDF or Word · up to 8 MB</span>
+              <span className="text-xs text-muted-foreground">PDF or Word · up to 4 MB</span>
             </button>
           )}
         </Field>
