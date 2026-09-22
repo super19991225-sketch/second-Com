@@ -122,14 +122,16 @@ async function handleCareer(request: Request) {
     });
   } catch (error) {
     console.error("[careers] SMTP send failed", error);
-    const detail =
-      import.meta.env.DEV && error instanceof Error
-        ? ` Could not reach mailbox (${error.message}).`
-        : "";
-    return Response.json(
-      { ok: false, error: `Could not send application.${detail}` },
-      { status: 502 },
-    );
+    const message = error instanceof Error ? error.message : String(error);
+    let hint = "Could not send application.";
+    if (/Missing SMTP_/i.test(message)) {
+      hint = "Mail is not configured on the server (missing SMTP env vars).";
+    } else if (/Invalid login|Authentication failed|EAUTH/i.test(message)) {
+      hint = "Mailbox login failed. Check SMTP_USER / SMTP_PASS on Vercel, then redeploy.";
+    } else if (/ENOTFOUND|ECONNECTION|ETIMEDOUT|ECONNREFUSED/i.test(message)) {
+      hint = "Could not reach the mail server. Check SMTP_HOST / SMTP_PORT, then redeploy.";
+    }
+    return Response.json({ ok: false, error: hint }, { status: 502 });
   }
 
   return Response.json({ ok: true });
