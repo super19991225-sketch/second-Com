@@ -6,7 +6,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { SiteFrame } from "@/components/site/SiteFrame";
 import { SmartTicket } from "@/components/site/SmartTicket";
-import { cultureMoments, leadership, workModels } from "@/data/about";
+import { cultureMoments, workModels } from "@/data/about";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -45,28 +45,6 @@ function AboutPage() {
           work, the model we use with a client team, and the life around the desks.
         </PageHero>
 
-        <FieldBand>
-          <SectionHeading icon="about" eyebrow="Leadership" title="The people who hold the work.">
-            Four leads. Different faces, different clothes, different duties: scientific models,
-            engineering, products, and training.
-          </SectionHeading>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {leadership.map((person) => (
-              <SmartTicket
-                key={person.name}
-                image={person.image}
-                alt={person.alt}
-                eyebrow={person.role}
-                badge="Lead"
-                chips={person.chips}
-                title={person.name}
-                icon={person.icon}
-                body={person.body}
-                minClass="min-h-[28rem]"
-              />
-            ))}
-          </div>
-        </FieldBand>
 
         <FieldBand>
           <SectionHeading
